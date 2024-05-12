@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
-import GetWeather from "./GetWeather";
+import DisplayWeather from "./DisplayWeather";
+import SearchBar from "./SearchBar";
 
 function App() {
-  const [inputValue, setInputValue] = useState('');
+  const [cityName, setCityName] = useState('');
 
   return (
     <div className="App">
       <header className="App-header">
-       <GetWeather    
-          cityName={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+      <SearchBar 
+          inputValue={cityName}
+          onInputValueChange={setCityName}
       />
+      <DisplayWeather />
+      <div>{cityName}</div>
       </header>
     </div>
   );

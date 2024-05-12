@@ -1,23 +1,23 @@
 import React from 'react';
 
-function GetWeather({cityName, onChange}) {
+function SearchBar({inputValue, onInputValueChange}) {
     const handleSubmit = (e) => {
       e.preventDefault();
       // Handle form submission here
-      console.log(cityName);
     };
-  
+
     return (
       <form onSubmit={handleSubmit}>
         <input
+          id='cityInput'
           type="text"
           placeholder="Enter your location"
-          value={cityName}
-          onChange={onChange}
+          value={inputValue}
+          onChange={(e) => onInputValueChange(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button id='submitBtn' type="submit">Submit</button>
       </form>
     );
   }
   
-  export default GetWeather;
+  export default SearchBar;
