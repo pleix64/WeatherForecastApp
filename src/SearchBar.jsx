@@ -1,9 +1,13 @@
 import React from 'react';
 
-function SearchBar({inputValue, onInputValueChange}) {
+function SearchBar({inputValue, onInputValueChange, data, setData}) {
     const handleSubmit = (e) => {
       e.preventDefault();
       // Handle form submission here
+      fetch('https://api.journey.skillreactor.io/r/f/weather')
+      .then((response) => {response.json();})
+      .then((data) => setData(data))
+      .catch((error) => console.error('API Call Failed: ', error));
     };
 
     return (

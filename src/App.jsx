@@ -5,6 +5,7 @@ import SearchBar from "./SearchBar";
 
 function App() {
   const [cityName, setCityName] = useState('');
+  const [data, setData] = useState(null);
 
   return (
     <div className="App">

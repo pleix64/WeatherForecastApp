@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 function DisplayWeather() {
-    const [data, setData] = useState(null);
+    //const [data, setData] = useState(null);
 
-    console.log(data);
+    // console.log(data);
 
-//    useEffect(() => {
-        fetch('https://api.journey.skillreactor.io/r/f/weather')
-        .then((response) => {
-//            console.log('Reponse is ', response);
-            response.json();})
-        .then((data) => setData(data))
-        .catch((error) => console.error('API Call Failed: ', error));
-//    }, []);
-    console.log('After loading...')
-    console.log(data);
+    // useEffect(() => {
+    //     fetch('https://api.journey.skillreactor.io/r/f/weather')
+    //     .then((response) => {
+    //         console.log('Reponse is ', response);
+    //         response.json();})
+    //     .then((data) => setData(data))
+    //     .catch((error) => console.error('API Call Failed: ', error));
+    // }, []);
+    // console.log('After loading...')
+    // console.log(data);
     // will be interactive later...
     let cityName = 'New York';
     //const results = data.filter((city) => city === cityName);
