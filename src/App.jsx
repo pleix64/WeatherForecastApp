@@ -7,15 +7,22 @@ function App() {
   const [cityName, setCityName] = useState('');
   const [data, setData] = useState(null);
 
+  const updateData = (d) => {
+    setData(d);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-      <SearchBar 
+        <SearchBar 
           inputValue={cityName}
           onInputValueChange={setCityName}
-      />
-      <DisplayWeather />
-      <div>{cityName}</div>
+          onSubmit={updateData}
+        />
+        <DisplayWeather 
+          userInput={cityName} 
+          data={data}
+        />
       </header>
     </div>
   );

@@ -1,28 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function DisplayWeather() {
-    //const [data, setData] = useState(null);
+function DisplayWeather({userInput, data}) {
 
-    // console.log(data);
-
-    // useEffect(() => {
-    //     fetch('https://api.journey.skillreactor.io/r/f/weather')
-    //     .then((response) => {
-    //         console.log('Reponse is ', response);
-    //         response.json();})
-    //     .then((data) => setData(data))
-    //     .catch((error) => console.error('API Call Failed: ', error));
-    // }, []);
-    // console.log('After loading...')
-    // console.log(data);
-    // will be interactive later...
-    let cityName = 'New York';
-    //const results = data.filter((city) => city === cityName);
-    const results = data;
+  //const results = data.filter((city) => city === userInput);
 
     return (
         <div>
-          {data ? (
+          {userInput && data ? (
             <div>{JSON.stringify(data)}</div>
           ) : (
             <div>Loading...</div>
