@@ -9,9 +9,6 @@ const timeZone = {
 }
 
 function DisplayWeather({userInput, data}) {
-
-  // NEXT TO-DO:
-  // implement filter and display data as required. 
   const results = data ? data.filter((datum) => datum.city === userInput) : [];
   let now = new Date();
   let localTime = new Date(now.toLocaleString("en-US", {timeZone: timeZone[userInput]}));
@@ -23,9 +20,9 @@ function DisplayWeather({userInput, data}) {
             <div>
               <div id='mainCity'>{results[day].city}</div>
                  <div id='mainWeekday'>{results[day].dayOfWeek}</div>
-                 <div id='mainTemperature'>Temperature: {results[day].temperature} degree</div>
-                 <div id='mainHumidity'>Humidity: {results[day].humidity}%</div>
-                 <div id='mainWindSpeed'>Wind: {results[day].windSpeed} m/s</div>
+                 <div id='mainTemperature'>{results[day].temperature}</div>
+                 <div id='mainHumidity'>{results[day].humidity}</div>
+                 <div id='mainWindSpeed'>{results[day].windSpeed} m/s</div>
             </div>
           ) : (
             <div>Loading...</div>
