@@ -2,12 +2,21 @@ import React from 'react';
 
 function DisplayWeather({userInput, data}) {
 
-  //const results = data.filter((city) => city === userInput);
+  // NEXT TO-DO:
+  // implement filter and display data as required. 
+
+  const results = data.filter((datum) => datum.city === userInput);
 
     return (
         <div>
-          {userInput && data ? (
-            <div>{JSON.stringify(data)}</div>
+          {userInput && results.length ? (
+            <div>
+              <div id='mainCity'>{results[0].city}</div>
+                 <div id='mainWeekday'>{results[0].dayOfWeek}</div>
+                 <div id='mainTemperature'>Temperature: {results[0].temperature} degree</div>
+                 <div id='mainHumidity'>Humidity: {results[0].humidity}%</div>
+                 <div id='mainWindSpeed'>Wind: {results[0].windSpeed} m/s</div>
+            </div>
           ) : (
             <div>Loading...</div>
           )}
