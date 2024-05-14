@@ -14,7 +14,15 @@ function DisplayWeather({userInput, data}) {
   let localTime = new Date(now.toLocaleString("en-US", {timeZone: timeZone[userInput]}));
   let day = localTime.getDay();
 
+  const nextDays = [];
+  if(results.length) {
+    for(let i = 1; i < 7; i++) {
+      nextDays.push(results[(day + i) % 7]);
+    }
+  }
+
     return (
+      <>
         <div>
           {userInput && results.length ? (
             <div>
@@ -28,6 +36,20 @@ function DisplayWeather({userInput, data}) {
             <div>Loading...</div>
           )}
         </div>
+        <div>
+          {userInput && nextDays.length ? 
+          nextDays.map( (aDay) => (
+            <div id={'data_'+aDay.dayOfWeek.toLowerCase()}>
+              <h3 class='weekDay'>{aDay.dayOfWeek}</h3>
+              <p class='temperature'>{aDay.temperature}</p>
+              <p class='humidity'>{aDay.humidity}</p>
+              <p class='windSpeed'>{aDay.windSpeed} m/s</p>
+            </div>
+          )) : (
+            <div>Next Days...</div>
+          )}
+        </div>
+      </>
     );
 
     // return (
