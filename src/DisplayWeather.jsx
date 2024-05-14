@@ -1,21 +1,31 @@
 import React from 'react';
 
+const timeZone = {
+  "New York": "America/New_York",
+  "Tokyo": "Asia/Tokyo",
+  "London": "Europe/London",
+  "Paris": "Europe/Paris",
+  "Sydney": "Australia/Sydney"
+}
+
 function DisplayWeather({userInput, data}) {
 
   // NEXT TO-DO:
   // implement filter and display data as required. 
-
   const results = data ? data.filter((datum) => datum.city === userInput) : [];
+  let now = new Date();
+  let localTime = new Date(now.toLocaleString("en-US", {timeZone: timeZone[userInput]}));
+  let day = localTime.getDay();
 
     return (
         <div>
           {userInput && results.length ? (
             <div>
-              <div id='mainCity'>{results[0].city}</div>
-                 <div id='mainWeekday'>{results[0].dayOfWeek}</div>
-                 <div id='mainTemperature'>Temperature: {results[0].temperature} degree</div>
-                 <div id='mainHumidity'>Humidity: {results[0].humidity}%</div>
-                 <div id='mainWindSpeed'>Wind: {results[0].windSpeed} m/s</div>
+              <div id='mainCity'>{results[day].city}</div>
+                 <div id='mainWeekday'>{results[day].dayOfWeek}</div>
+                 <div id='mainTemperature'>Temperature: {results[day].temperature} degree</div>
+                 <div id='mainHumidity'>Humidity: {results[day].humidity}%</div>
+                 <div id='mainWindSpeed'>Wind: {results[day].windSpeed} m/s</div>
             </div>
           ) : (
             <div>Loading...</div>
