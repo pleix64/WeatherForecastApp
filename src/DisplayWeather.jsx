@@ -5,7 +5,7 @@ function DisplayWeather({userInput, data}) {
   // NEXT TO-DO:
   // implement filter and display data as required. 
 
-  const results = data.filter((datum) => datum.city === userInput);
+  const results = data ? data.filter((datum) => datum.city === userInput) : [];
 
     return (
         <div>
