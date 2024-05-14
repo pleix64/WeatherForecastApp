@@ -21,53 +21,36 @@ function DisplayWeather({userInput, data}) {
     }
   }
 
-    return (
-      <>
-        <div>
-          {userInput && results.length ? (
-            <div>
-              <div id='mainCity'>{results[day].city}</div>
-                 <div id='mainWeekday'>{results[day].dayOfWeek}</div>
-                 <div id='mainTemperature'>{results[day].temperature}</div>
-                 <div id='mainHumidity'>{results[day].humidity}</div>
-                 <div id='mainWindSpeed'>{results[day].windSpeed} m/s</div>
-            </div>
-          ) : (
-            <div>Loading...</div>
-          )}
-        </div>
-        <div>
-          {userInput && nextDays.length ? 
-          nextDays.map( (aDay) => (
-            <div id={'data_'+aDay.dayOfWeek.toLowerCase()}>
-              <h3 class='weekDay'>{aDay.dayOfWeek}</h3>
-              <p class='temperature'>{aDay.temperature}</p>
-              <p class='humidity'>{aDay.humidity}</p>
-              <p class='windSpeed'>{aDay.windSpeed} m/s</p>
-            </div>
-          )) : (
-            <div>Next Days...</div>
-          )}
-        </div>
-      </>
-    );
-
-    // return (
-    //     <>
-    //     {data ? (
-    //         <div>        
-    //             <div id='mainCity'>{results[0].city}</div>
-    //             <div id='mainWeekday'>{results[0].dayOfWeek}</div>
-    //             <div id='mainTemperature'>{results[0].temperature}</div>
-    //             <div id='mainHumidity'>{results[0].humidity}</div>
-    //             <div id='mainWindSpeed'>{results[0].windSpeed}</div>
-    //         </div>
-    //     ) : (
-    //         <div>Loading...</div>
-    //     )}
-    //    </>
-        
-    // );
+  return (
+    <>
+      <div>
+        {userInput && results.length ? (
+          <div>
+            <div id='mainCity'>{results[day].city}</div>
+                <div id='mainWeekday'>{results[day].dayOfWeek}</div>
+                <div id='mainTemperature'>{results[day].temperature}</div>
+                <div id='mainHumidity'>{results[day].humidity}</div>
+                <div id='mainWindSpeed'>{results[day].windSpeed} m/s</div>
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </div>
+      <div>
+        {userInput && nextDays.length ? 
+        nextDays.map( (aDay) => (
+          <div id={'data_'+aDay.dayOfWeek.toLowerCase()}>
+            <h3 className='weekDay'>{aDay.dayOfWeek}</h3>
+            <p className='temperature'>{aDay.temperature}</p>
+            <p className='humidity'>{aDay.humidity}</p>
+            <p className='windSpeed'>{aDay.windSpeed} m/s</p>
+          </div>
+        )) : (
+          <div></div>
+        )}
+      </div>
+    </>
+  );
 }
 
 export default DisplayWeather;

@@ -12,7 +12,6 @@ function SearchBar({inputValue, onInputValueChange, onSubmit}) {
       return response.json();
     })
     .then((data) => {
-      console.log('Retrieved data:', data);
       onSubmit(data);
     })
     .catch((error) => console.error('API Call Failed: ', error));
