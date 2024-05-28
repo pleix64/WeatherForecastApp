@@ -36,6 +36,6 @@ SearchBar.prototype = {
   inputValue: PropTypes.string.isRequired,
   onInputValueChange: PropTypes.func,
   onSubmit: PropTypes.func
-}
+};
 
 export default SearchBar;
