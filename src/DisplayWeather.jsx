@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const timeZone = {
   "New York": "America/New_York",
@@ -52,5 +53,10 @@ function DisplayWeather({userInput, data}) {
     </>
   );
 }
+
+DisplayWeather.prototype = {
+  userInput: PropTypes.string.isRequired,
+  data: PropTypes.array
+};
 
 export default DisplayWeather;

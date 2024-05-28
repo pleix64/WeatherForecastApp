@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function SearchBar({inputValue, onInputValueChange, onSubmit}) {
   const handleSubmit = (e) => {
@@ -31,4 +32,10 @@ function SearchBar({inputValue, onInputValueChange, onSubmit}) {
   );
 }
   
+SearchBar.prototype = {
+  inputValue: PropTypes.string.isRequired,
+  onInputValueChange: PropTypes.func,
+  onSubmit: PropTypes.func
+}
+
 export default SearchBar;
